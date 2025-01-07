@@ -12,11 +12,11 @@
   ],
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "/proxy/(.*)",
       "dest": "/proxy_server.py"
     },
     {
-      "src": "/(.*)",
+      "src": "/bot/(.*)",
       "dest": "/bot.py"
     }
   ]
