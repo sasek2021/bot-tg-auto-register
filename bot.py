@@ -562,7 +562,8 @@ async def handle_registration(user_id, update, context):
 
     try:
         async with httpx.AsyncClient() as client:
-            response = await client.post('http://localhost:5000/register', json=register_data)
+            response = await client.post('https://bot-tg-auto-register.vercel.app//register', json=register_data)
+            # response = await client.post('http://localhost:5000/register', json=register_data)
         if response.status_code == 200:
             # Parse response for PHPSESSID
             session_data = response.json()
