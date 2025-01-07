@@ -2,14 +2,22 @@
   "version": 2,
   "builds": [
     {
-      "src": "index.py",
+      "src": "proxy_server.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "bot.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/index.py"
+      "dest": "/proxy_server.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/bot.py"
     }
   ]
 }
