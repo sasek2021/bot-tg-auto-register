@@ -52,4 +52,5 @@ def register():
     return jsonify({'message': 'Registration or login failed'}), 400
 
 if __name__ == "__main__":
-    app.run(port=5000)
+    # app.run(port=5000)
+    app.run(debug=True)
