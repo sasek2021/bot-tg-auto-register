@@ -9,15 +9,5 @@
       "src": "proxy_server.py",
       "use": "@vercel/python"
     }
-  ],
-  "routes": [
-    {
-      "src": "/bot",
-      "dest": "/bot.py"
-    },
-    {
-      "src": "/proxy",
-      "dest": "/proxy_server.py"
-    }
   ]
 }
