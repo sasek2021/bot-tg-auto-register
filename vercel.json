@@ -2,6 +2,10 @@
   "version": 2,
   "builds": [
     {
+      "src": "proxy_server.py",
+      "use": "@vercel/python"
+    },
+    {
       "src": "bot.py",
       "use": "@vercel/python"
     }
@@ -13,7 +17,7 @@
     },
     {
       "src": "/",
-      "dest": "proxy_server.py"
+      "dest": "bot.py"
     }
   ]
 }
