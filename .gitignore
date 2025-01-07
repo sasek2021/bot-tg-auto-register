@@ -1,0 +1,43 @@
+# Ignore Python bytecode files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore virtual environments
+venv/
+env/
+ENV/
+.venv/
+.idea/
+.vscode/
+
+# Ignore distribution and packaging files
+*.egg
+*.egg-info/
+dist/
+build/
+*.tar.gz
+
+# Ignore logs
+*.log
+
+# Ignore unit test / coverage reports
+.coverage
+nosetests.xml
+pytest.xml
+coverage.xml
+*.cover
+
+# Ignore Jupyter notebook checkpoints
+.ipynb_checkpoints
+
+# Ignore macOS system files
+.DS_Store
+
+# Ignore Windows system files
+Thumbs.db
+
+# Ignore Python-specific IDE files (e.g., PyCharm, VS Code)
+.idea/
+.vscode/
