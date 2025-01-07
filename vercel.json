@@ -6,6 +6,6 @@
     ],
     "routes": [
       { "src": "/bot", "dest": "bot.py" },
-      { "src": "/proxy", "dest": "proxy_server.py" }
+      { "src": "/proxy_server", "dest": "proxy_server.py" }
     ]
   }
