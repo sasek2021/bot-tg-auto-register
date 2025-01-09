@@ -13,19 +13,5 @@
       "src": "setup_webhook.py",
       "use": "@vercel/python"
     }
-  ],
-  "routes": [
-    {
-      "src": "/register",
-      "dest": "/proxy_server.py"
-    },
-    {
-      "src": "/bot",
-      "dest": "/bot.py"
-    },
-    {
-      "src": "/webhook",
-      "dest": "/setup_webhook.py"
-    }
   ]
 }
