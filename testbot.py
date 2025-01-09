@@ -1,16 +1,24 @@
 import os
+from flask import Flask, request
 import telebot
+
+app = Flask(__name__)
 
 BOT_TOKEN = os.environ['TELEGRAM_BOT_TOKEN']
 bot = telebot.TeleBot(BOT_TOKEN)
 
-@bot.message_handler(commands=['start', 'hello'])
-def send_welcome(message):
-    bot.reply_to(message, "Hello! How are you doing?")
+@app.route('/webhook', methods=['POST'])
+def webhook():
+    json_str = request.get_data().decode('UTF-8')
+    update = telebot.types.Update.de_json(json_str)
+    bot.process_new_updates([update])
+    return 'OK', 200
 
-@bot.message_handler(func=lambda msg: True)
-def echo_all(message):
-    bot.reply_to(message, message.text)
+@app.route('/')
+def index():
+    return 'Bot is up and running!'
 
 if __name__ == '__main__':
-    bot.polling()
+    bot.remove_webhook()  # Remove any existing webhook
+    bot.set_webhook(url="https://bot-tg-auto-register.vercel.app/webhook")  # Replace with your Vercel URL
+    app.run(debug=True)
