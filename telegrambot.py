@@ -1,35 +1,29 @@
 from fastapi import FastAPI, Request
 from telegram import Bot, Update
-from telegram.ext import Dispatcher, CommandHandler
-import os
-
+from telegram.ext import Application, CommandHandler
 
 # Telegram Bot Token
-BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
-
+BOT_TOKEN = "7756256878:AAHwv5AvJ0pevOBOhTxupVlGXVYnpfZtUP0"
 
 # Initialize the FastAPI app
 app = FastAPI()
 
-# Initialize the Telegram Bot
-bot = Bot(token=BOT_TOKEN)
+# Create the Telegram Bot Application
+application = Application.builder().token(BOT_TOKEN).build()
 
-# Dispatcher to handle Telegram updates
-dispatcher = Dispatcher(bot, None, workers=0)
+# Define a command handler
+async def start(update: Update, context):
+    await update.message.reply_text("Hello! I am your bot.")
 
-# Define a simple command
-def start(update, context):
-    update.message.reply_text("Hello! I am your bot.")
-
-# Add command handlers to the dispatcher
-dispatcher.add_handler(CommandHandler("start", start))
+# Add the command handler to the bot
+application.add_handler(CommandHandler("start", start))
 
 @app.post("/")
 async def webhook(request: Request):
     """Handle incoming Telegram updates."""
     data = await request.json()
-    update = Update.de_json(data, bot)
-    dispatcher.process_update(update)
+    update = Update.de_json(data, application.bot)
+    await application.process_update(update)
     return {"status": "ok"}
 
 @app.get("/")
