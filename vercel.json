@@ -1,13 +1,8 @@
 {
-  "version": 2,
-  "builds": [
-    { "src": "bot.py", "use": "@vercel/python" },
-    { "src": "proxy_server.py", "use": "@vercel/python" },
-    { "src": "setup_webhook.py", "use": "@vercel/python" }
-  ],
-  "routes": [
-    { "src": "/bot", "dest": "bot.py" },
-    { "src": "/proxy_server", "dest": "proxy_server.py" },
-    { "src": "/setup_webhook", "dest": "setup_webhook.py" }
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/bot"
+    }
   ]
 }
