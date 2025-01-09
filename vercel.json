@@ -6,7 +6,7 @@
     { "src": "setup_webhook.py", "use": "@vercel/python" }
   ],
   "routes": [
-    { "src": "/webhook", "dest": "testbot.py" },
+    { "src": "/bot", "dest": "bot.py" },
     { "src": "/proxy_server", "dest": "proxy_server.py" },
     { "src": "/setup_webhook", "dest": "setup_webhook.py" }
   ]
