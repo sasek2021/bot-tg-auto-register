@@ -24,7 +24,7 @@
       "dest": "bot.py"
     },
     {
-      "src": "/(.*)",
+      "src": "testbot.py",
       "dest": "testbot.py"
     }
   ]
