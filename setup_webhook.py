@@ -1,12 +1,16 @@
 import os
-import telebot
-
+import requests
 BOT_TOKEN = os.environ['TELEGRAM_BOT_TOKEN']
 WEBHOOK_URL = os.environ['WEBHOOK_URL']
-bot = telebot.TeleBot(BOT_TOKEN)
 
-# Remove existing webhook
-bot.remove_webhook()
+BOT_TOKEN = "YOUR_TELEGRAM_BOT_TOKEN"
+WEBHOOK_URL = "https://<your-vercel-app>.vercel.app/webhook"
 
-# Set new webhook
-bot.set_webhook(url=WEBHOOK_URL)
+def set_webhook():
+    url = f"https://api.telegram.org/bot{BOT_TOKEN}/setWebhook"
+    payload = {"url": WEBHOOK_URL}
+    response = requests.post(url, json=payload)
+    print(response.json())
+
+if __name__ == "__main__":
+    set_webhook()
