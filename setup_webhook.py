@@ -2,7 +2,7 @@ import os
 import requests
 
 BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "7756256878:AAHwv5AvJ0pevOBOhTxupVlGXVYnpfZtUP0")  # Replace with a secure token
-WEBHOOK_URL = os.getenv("WEBHOOK_URL", "https://bot-tg-auto-register.vercel.app/webhook")
+WEBHOOK_URL = os.getenv("WEBHOOK_URL", "https://bot-tg-auto-register.vercel.app/bot")
 
 def set_webhook():
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/setWebhook"
