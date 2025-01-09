@@ -1,9 +1,11 @@
 {
   "version": 2,
   "builds": [
-    { "src": "testbot.py", "use": "@vercel/python" }
+    { "src": "testbot.py", "use": "@vercel/python" },
+    { "src": "setup_webhook.py", "use": "@vercel/python" }
   ],
   "routes": [
-    { "src": "/.*", "dest": "testbot.py" }
+    { "src": "/webhook", "dest": "testbot.py" },
+    { "src": "/setup_webhook", "dest": "setup_webhook.py" }
   ]
 }
