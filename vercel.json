@@ -1,8 +1,18 @@
 {
   "version": 2,
-  "functions": {
-    "api/**/*.py": {
-      "runtime": "@vercel/python"
+  "builds": [
+    {
+      "src": "proxy_server.py",
+      "use": "@vercel/python",
+      "config": {
+        "buildCommand": "pip install -r requirements.txt"
+      }
     }
-  }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "proxy_server.py"
+    }
+  ]
 }
