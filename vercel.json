@@ -3,16 +3,21 @@
   "builds": [
     {
       "src": "proxy_server.py",
-      "use": "@vercel/python",
-      "config": {
-        "buildCommand": "pip install -r requirements.txt"
-      }
+      "use": "@vercel/python"
+    },
+    {
+      "src": "bot.py",
+      "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
       "dest": "proxy_server.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "bot.py"
     }
   ]
 }
