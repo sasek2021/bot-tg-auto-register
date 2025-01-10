@@ -3,4 +3,3 @@ python-dotenv
 firebase-admin
 httpx
 flask
-venv
