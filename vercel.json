@@ -3,27 +3,20 @@
   "builds": [
     {
       "src": "proxy_server.py",
-      "use": "@vercel/python",
-      "config": {
-        "buildCommand": "python3 -m venv venv"
-      }
+      "use": "@vercel/python"
     },
     {
       "src": "bot.py",
-      "use": "@vercel/python",
-      "config": {
-        "buildCommand": "pip install -r requirements.txt"
-
-      }
+      "use": "@vercel/python"
     }
   ],
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "/proxy/(.*)",
       "dest": "proxy_server.py"
     },
     {
-      "src": "/(.*)",
+      "src": "/bot/(.*)",
       "dest": "bot.py"
     }
   ]
