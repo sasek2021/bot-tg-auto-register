@@ -28,6 +28,8 @@ import telegram.error
 import httpx  # Import httpx for async HTTP requests
 import re  # Import regular expressions module
 
+import streamlit as st
+
 # Load environment variables
 load_dotenv()
 
